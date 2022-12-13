@@ -5,8 +5,9 @@ import 'package:final_project/classes/Entrada.dart';
 import 'package:flutter_bootstrap/flutter_bootstrap.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
+import 'package:final_project/components/widgets.dart';
 
-  final Entrada entrada = Entrada('hello', 'en', 'pt');
+final Entrada entrada = Entrada('hello', 'en', 'pt');
 
 void main() => runApp(MyApp());
 
@@ -28,9 +29,11 @@ class MyApp extends StatelessWidget {
 }
 
 class BodyWidget extends StatefulWidget {
+  const BodyWidget({super.key});
+
   @override
   BodyWidgetState createState() {
-    return new BodyWidgetState();
+    return BodyWidgetState();
   }
 }
 
@@ -48,7 +51,7 @@ class BodyWidgetState extends State<BodyWidget> {
 					decoration: const BoxDecoration(
 						color: Colors.white,
 					),
-					padding: const EdgeInsets.only(top:0),
+					padding: const EdgeInsets.all(10.0),
 					children: <Widget>[
             BootstrapRow(
               children: <BootstrapCol>[
@@ -58,6 +61,11 @@ class BodyWidgetState extends State<BodyWidget> {
                     key: _formKey,
                     child: BootstrapRow(
                       children: [
+                        BootstrapCol(
+                          sizes: 'col-12',
+                          child: Widgets.text('Translate english to Portuguese'),
+                        ),
+
                         BootstrapCol(
                           sizes: 'col-12',
                           child: TextFormField(
@@ -92,7 +100,7 @@ class BodyWidgetState extends State<BodyWidget> {
                               });
 
                             },
-                            child: Text('Send'),
+                            child: Widgets.text('Send',cor:Colors.white),
                           ),
                         ),
                       ],
@@ -105,7 +113,7 @@ class BodyWidgetState extends State<BodyWidget> {
               children: [
                 BootstrapCol(
                   sizes: 'col-12',
-                  child: Text(serverResponse),
+                  child: Widgets.text(serverResponse),
                 ),
               ],
             ),

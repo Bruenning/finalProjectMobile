@@ -11,7 +11,7 @@ const options = {
 		"X-RapidAPI-Host": "translate-plus.p.rapidapi.com",
 	},
 };
-
+console.log("Server is running on port 8080");
 const getText = async (req, res) => {
 	try {
 		res.writeHead(200, {
