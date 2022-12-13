@@ -9,9 +9,11 @@ import 'package:final_project/components/widgets.dart';
 
 final Entrada entrada = Entrada('Server Response', 'en', 'pt');
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -138,7 +140,6 @@ class BodyWidgetState extends State<BodyWidget> {
         'target': target,
       },
     );
-    print(url);
     
     Response response = await get(url, headers: {
       HttpHeaders.contentTypeHeader: 'application/json',
