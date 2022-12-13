@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:final_project/components/widgets.dart';
 
-final Entrada entrada = Entrada('hello', 'en', 'pt');
+final Entrada entrada = Entrada('Server Response', 'en', 'pt');
 
 void main() => runApp(MyApp());
 
@@ -21,8 +21,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-        appBar: AppBar(title: Text('Flutter Client')),
-        body: BodyWidget(),
+        appBar: AppBar(title: const Text('Node translate api')),
+        body: const BodyWidget(),
       ),
     );
   }
@@ -63,7 +63,7 @@ class BodyWidgetState extends State<BodyWidget> {
                       children: [
                         BootstrapCol(
                           sizes: 'col-12',
-                          child: Widgets.text('Translate english to Portuguese'),
+                          child: Widgets.text('Translate'),
                         ),
 
                         BootstrapCol(
@@ -73,7 +73,7 @@ class BodyWidgetState extends State<BodyWidget> {
                               labelText: 'Enter your phrase',
                             ),
                             keyboardType: TextInputType.multiline,
-                            maxLines: 6,
+                            maxLines: 4,
                             onSaved: (value) => {
                               setState(() {
                                 if(value != null) {
@@ -100,7 +100,7 @@ class BodyWidgetState extends State<BodyWidget> {
                               });
 
                             },
-                            child: Widgets.text('Send',cor:Colors.white),
+                            child: Widgets.text('Send',cor:Colors.white, alinhamento: TextAlign.center),
                           ),
                         ),
                       ],
